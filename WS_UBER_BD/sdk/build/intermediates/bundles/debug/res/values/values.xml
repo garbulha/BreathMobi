@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/attrs.xml -->
+    <eat-comment/>
+    <attr format="reference" name="uberButtonStyle"/>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="uber_black_100">#09091A</color>
+    <color name="uber_black_90">#222231</color>
+    <color name="uber_white_100">#C0C0C8</color>
+    <color name="uber_white_80">#CDCDD3</color>
+    <declare-styleable name="RequestButton"><attr format="string" name="client_id"/><attr format="enum" name="style"><enum name="black" value="0"/><enum name="white" value="1"/></attr></declare-styleable>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="button_padding">8dp</dimen>
+    <dimen name="corner_rounding">2dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/strings_unlocalized.xml -->
+    <eat-comment/>
+    <string name="mobile_redirect">https://m.uber.com/sign-up?client_id=%1$s&amp;user-agent=%2$s</string>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/strings_localized.xml -->
+    <eat-comment/>
+    <string name="ride_with_uber">Ride there with Uber</string>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/themes.xml -->
+    <eat-comment/>
+    <style name="Base.Theme.Uber" parent="Theme.AppCompat.Light">
+        <item name="uberButtonStyle">@style/UberButton</item>
+    </style>
+    <!-- From: file:/C:/Users/Admin/Desktop/TCC/UBER_SQLITE_WEBSERVICE/sdk/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="UberButton">
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/uber_white_100</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:background">@drawable/uber_button_background_selector_black</item>
+    </style>
+    <style name="UberButton.RideRequest" parent="UberButton">
+        <item name="android:text">@string/ride_with_uber</item>
+        <item name="android:drawableLeft">@drawable/uber_badge</item>
+        <item name="android:drawablePadding">@dimen/button_padding</item>
+    </style>
+    <style name="UberButton.RideRequest.White" parent="UberButton.RideRequest">
+        <item name="android:textColor">@color/uber_black_100</item>
+        <item name="android:background">@drawable/uber_button_background_selector_white</item>
+    </style>
+</resources>

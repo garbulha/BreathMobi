@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="common_signin_button_text" msgid="3156914698180786012">"Prisijungti"</string>
+    <string name="common_signin_button_text_long" msgid="1483290677806110088">"Prisijungti naudojant „Google“"</string>
+</resources>

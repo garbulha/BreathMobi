@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GeoLocalizacao.iml" filepath="$PROJECT_DIR$/GeoLocalizacao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T_LocationService.iml" filepath="$PROJECT_DIR$/T_LocationService.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

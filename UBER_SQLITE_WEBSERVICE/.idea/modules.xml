@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UBER_SQLITE_WEBSERVICE.iml" filepath="$PROJECT_DIR$/UBER_SQLITE_WEBSERVICE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/samples/samples.iml" filepath="$PROJECT_DIR$/samples/samples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sdk/sdk.iml" filepath="$PROJECT_DIR$/sdk/sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uber_tcc_sqlite/uber_tcc_sqlite.iml" filepath="$PROJECT_DIR$/uber_tcc_sqlite/uber_tcc_sqlite.iml" />
+    </modules>
+  </component>
+</project>

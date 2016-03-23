@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable\\abc_edit_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
-        "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable\\abc_ratingbar_full_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\debug\\drawable\\uber_button_background_white_100.xml",
         "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\src\\main\\res\\drawable\\uber_button_background_white_100.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
+        "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable\\abc_ratingbar_full_material.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",

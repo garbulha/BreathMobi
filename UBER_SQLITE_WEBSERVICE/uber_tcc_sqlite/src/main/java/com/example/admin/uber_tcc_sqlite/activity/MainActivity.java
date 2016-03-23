@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -28,6 +29,7 @@ import com.example.admin.uber_tcc_sqlite.model.HMAux;
 import com.firebase.client.Firebase;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderApi;
 import com.google.android.gms.location.LocationServices;
 
 public class MainActivity extends AppCompatActivity  implements
@@ -137,18 +139,7 @@ public class MainActivity extends AppCompatActivity  implements
                 chamarTelaUsuario(-1);
                 break;
             case R.id.menu_uber:
-                if( ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ){
-
-                    if( ActivityCompat.shouldShowRequestPermissionRationale( this, Manifest.permission.ACCESS_FINE_LOCATION ) ){
-                        callDialog("Ative o serviço de localização", new String[]{Manifest.permission.ACCESS_FINE_LOCATION});
-                    }
-                    else{
-                        ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSIONS_CODE );
-                    }
-                }
-                else{
-                    cnnGPS();
-                }
+                pedirPermicao();
                 break;
             case R.id.menu_webservice:
                 chamarTelaWebService();
@@ -159,6 +150,21 @@ public class MainActivity extends AppCompatActivity  implements
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void pedirPermicao() {
+        if( ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ){
+
+            if( ActivityCompat.shouldShowRequestPermissionRationale( this, Manifest.permission.ACCESS_FINE_LOCATION ) ){
+                callDialog("Ative o serviço de localização", new String[]{Manifest.permission.ACCESS_FINE_LOCATION});
+            }
+            else{
+                ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_PERMISSIONS_CODE );
+            }
+        }
+        else{
+            cnnGPS();
+        }
     }
 
     private void chamarTelaWebService() {
@@ -182,17 +188,12 @@ public class MainActivity extends AppCompatActivity  implements
     public void onConnected(Bundle bundle) {
         Location l = LocationServices.FusedLocationApi.getLastLocation(googleApiLocation);
 
-
         if (l != null) {
-            Log.d("LOG", "Longitude: " + l.getLongitude());
-            Log.d("LOG", "Latitude: " + l.getLatitude());
-
             Intent mIntent = new Intent(context, ApiUber.class);
             mIntent.putExtra(Constantes.LATITUDE, l.getLatitude());
             mIntent.putExtra(Constantes.LONGITUDE, l.getLongitude());
             startActivity(mIntent);
             finish();
-
         } else {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 

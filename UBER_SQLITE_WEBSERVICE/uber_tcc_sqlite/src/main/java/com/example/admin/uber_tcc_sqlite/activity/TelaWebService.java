@@ -1,12 +1,20 @@
 package com.example.admin.uber_tcc_sqlite.activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -24,6 +32,7 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.FirebaseException;
 import com.firebase.client.Query;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -55,20 +64,47 @@ public class TelaWebService extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HMAux item = (HMAux) parent.getItemAtPosition(position);
-                chamarTelaPessoa(item.get(HMAux.TEXTO01), item.get(HMAux.TEXTO02));
+                chamarTelaPessoa(item.get(HMAux.ID));
+            }
+        });
 
+        lv_pessoa.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(final AdapterView<?> parent, View view, final int position, long id) {
+                HMAux item = (HMAux) parent.getItemAtPosition(position);
+                final String pID;
+                pID = item.get(HMAux.ID);
+
+                AlertDialog.Builder alerta = new AlertDialog.Builder(TelaWebService.this);
+                alerta.setTitle("Excluir");
+                alerta.setTitle("Deseja excluir o registro?");
+                alerta.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            firebase = new Firebase("https://breathmobi.firebaseio.com/");
+                        } catch (FirebaseException e) {
+                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                        Firebase refDelete = firebase.child("usuario").child(pID);
+                        refDelete.removeValue();
+                        Toast.makeText(context, "Registro excluido", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alerta.setNegativeButton("Não", null);
+                alerta.show();
+
+                return true;
             }
         });
     }
 
-    private void chamarTelaPessoa(String texto1,String texto2) {
-        //Intent mIntent = new Intent(context, TelaUsuario.class);
-        String t1 = texto1;
-        String t2 = texto2;
-        int i = 10;
-
-        //startActivity(mIntent);
-        //finish();
+    private void chamarTelaPessoa(String codigo) {
+        Intent mIntent = new Intent(context, TelaPessoa.class);
+        mIntent.putExtra(Constantes.CODIGO, codigo);
+        startActivity(mIntent);
+        finish();
     }
 
     private class AsynckMau extends AsyncTask<Void, Integer, Void> {
@@ -94,15 +130,19 @@ public class TelaWebService extends AppCompatActivity {
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     try {
                         HashMap<String, Object> users = (HashMap<String, Object>) dataSnapshot.getValue();
+                        Object[] id = users.keySet().toArray();
+                        int i = 0;
 
                         for (Object user : users.values()) {
                             HashMap<String, Object> userMap = (HashMap<String, Object>) user;
                             HMAux hmAux = new HMAux();
 
+                            hmAux.put(HMAux.ID, (String) id[i]);
                             hmAux.put(HMAux.TEXTO01, (String) userMap.get("nome"));
                             hmAux.put(HMAux.TEXTO02, (String) userMap.get("idade"));
 
                             pessoa.add(hmAux);
+                            i++;
                         }
                         publishProgress();
                     } catch (Exception e) {
@@ -118,7 +158,7 @@ public class TelaWebService extends AppCompatActivity {
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                    Toast.makeText(context, "onChildRemoved", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -159,12 +199,38 @@ public class TelaWebService extends AppCompatActivity {
         }
     }
 
-
     @Override
     public void onBackPressed() {
         Intent mIntent = new Intent(context, MainActivity.class);
         startActivity(mIntent);
         finish();
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_firebase, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+
+        switch (id) {
+            case R.id.menu_incluir_firebase:
+                chamarTelaPessoa("0");
+                break;
+            default:
+                Log.d("Default_menu", "Erro no menu");
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

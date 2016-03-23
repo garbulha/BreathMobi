@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\uber_badge.png",
-        "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\uber_badge.png"
-    },
-    {
         "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
         "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\drawable-mdpi\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\uber_badge.png",
+        "source": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\uber_badge.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\TCC\\UBER_SQLITE_WEBSERVICE\\sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",

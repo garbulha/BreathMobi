@@ -35,6 +35,9 @@
         <activity
             android:name=".activity.TelaWebService"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TelaPessoa"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
